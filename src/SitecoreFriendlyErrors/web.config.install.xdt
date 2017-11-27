@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <system.web>
+		<customErrors mode="RemoteOnly" defaultRedirect="500.aspx" redirectMode="ResponseRewrite" xdt:Transform="SetAttributes">
+			<error statusCode="500" redirect="500.aspx" xdt:Transform="Insert" />
+		</customErrors>
+	</system.web>
+	<system.webServer>
+        <handlers>
+			<add type="SitecoreFriendlyErrors.Handlers.MediaRequestHandler, SitecoreFriendlyErrors" name="Sitecore.MediaRequestHandler" 
+				xdt:Locator="Match(name)"
+				xdt:Transform="SetAttributes"/>
+        </handlers>
+		<httpErrors errorMode="DetailedLocalOnly" existingResponse="Auto" xdt:Transform="Insert" >
+			<remove statusCode="404" subStatusCode="-1" />
+			<error statusCode="404" path="404.html" responseMode="File" />
+		</httpErrors>
+    </system.webServer>
+</configuration>

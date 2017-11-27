@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <system.web>
+		<customErrors mode="RemoteOnly" xdt:Transform="SetAttributes">
+			<error xdt:Transform="Remove" />
+		</customErrors>
+	</system.web>
+	<system.webServer>
+        <handlers>
+			<add type="Sitecore.Resources.Media.MediaRequestHandler, Sitecore.Kernel" name="Sitecore.MediaRequestHandler" 
+				xdt:Locator="Match(name)"
+				xdt:Transform="SetAttributes"/>
+        </handlers>
+		<httpErrors xdt:Transform="Remove" />
+    </system.webServer>
+</configuration>

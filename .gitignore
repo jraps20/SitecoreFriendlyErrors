@@ -1,0 +1,11 @@
+nuget.exe
+*.nuspec
+.vs/*
+packages
+lib/*
+*.user
+src/SitecoreFriendlyErrors/bin
+src/SitecoreFriendlyErrors/obj
+src/SitecoreFriendlyErrors/Properties/PublishProfiles
+*.nupkg
+*.ps1
