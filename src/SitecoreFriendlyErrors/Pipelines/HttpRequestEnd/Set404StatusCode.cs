@@ -19,7 +19,7 @@ namespace SitecoreFriendlyErrors.Pipelines.HttpRequestEnd
             if (!args.Context.Request.Url.LocalPath.EndsWith(Settings.ItemNotFoundUrl, StringComparison.InvariantCultureIgnoreCase))
                 return;
 
-            _404Logger.Log.Warn("Page Not Found: " + args.Context.Request.RawUrl + ", current status: " + HttpContext.Current.Response.StatusCode);
+            _404Logger.Log.Warn($"Page Not Found on {Sitecore.Context.Site.Name}: {args.Context.Request.RawUrl}, current status: {HttpContext.Current.Response.StatusCode}");
             HttpContext.Current.Response.TrySkipIisCustomErrors = true;
             HttpContext.Current.Response.StatusCode = (int)HttpStatusCode.NotFound;
             HttpContext.Current.Response.StatusDescription = "Page not found";
