@@ -9,18 +9,13 @@ using SitecoreFriendlyErrors.Loggers;
 
 namespace SitecoreFriendlyErrors.Pipelines.HttpRequestBegin
 {
-    public class CustomExecuteRequest : global::Sitecore.Pipelines.HttpRequest.ExecuteRequest
+    public class ExecuteRequest : global::Sitecore.Pipelines.HttpRequest.ExecuteRequest
     {
         private readonly BaseLinkManager _baseLinkManager;
 
-        public CustomExecuteRequest()
+        public ExecuteRequest()
         {
             _baseLinkManager = ServiceLocator.ServiceProvider.GetRequiredService<BaseLinkManager>();
-        }
-
-        public CustomExecuteRequest(BaseSiteManager baseSiteManager, BaseItemManager baseItemManager, BaseLinkManager baseLinkManager) : base(baseSiteManager, baseItemManager)
-        {
-            _baseLinkManager = baseLinkManager;
         }
 
         protected override void PerformRedirect(string url)

@@ -2,6 +2,12 @@
 
 Quickly get custom/friendly error pages configured in Sitecore. 
 
+### Disclaimer
+_Use at your own risk. While all changes are documented and available here (and this technique is used on multiple websites in production), these updates replace two pieces of existing Sitecore functionality:_
+* `<processor type="Sitecore.Pipelines.HttpRequest.ExecuteRequest, Sitecore.Kernel"/>`
+* `<add verb="*" path="sitecore_media.ashx" type="Sitecore.Resources.Media.MediaRequestHandler, Sitecore.Kernel" name="Sitecore.MediaRequestHandler" />`
+_These pieces are intentionally replaced to alter how the `RequestErrors.UseServerSideRedirect` setting is interpretted. By default, when true, Sitecore runs `Server.Transfer` on the given URL. `Server.Transfer` does not re-execute the request, instead it sends the user directly to a page, which is why the default `ItemNotFoundUrl` is a physical page on the server, it bypasses all pipelines associated with the request. The code in this repository changes this to use `Server.TransferRequest`, which sends the request behind the scenes and re-executes the request with all pipelines. This allows us to pass a Sitecore website path as the 404 page._
+
 # Installation
 
 1. Install the NuGet Package in your Sitecore web project: https://www.nuget.org/packages/Sitecore.FriendlyErrors
