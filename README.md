@@ -3,6 +3,9 @@
 Quickly get custom/friendly error pages configured in Sitecore. 
 
 ### Disclaimer
+
+_Verified on Sitecore 8.2+, including Sitecore 9. If you use this module with success, please let me know and I will update supported versions. To the best of my knowledge, the depedent logic has not been updated for quite some time._
+
 _Use at your own risk. While all changes are documented and available here (and this technique is used on multiple websites in production), these updates replace two pieces of existing Sitecore functionality:_
 * `<processor type="Sitecore.Pipelines.HttpRequest.ExecuteRequest, Sitecore.Kernel"/>`
 * `<add verb="*" path="sitecore_media.ashx" type="Sitecore.Resources.Media.MediaRequestHandler, Sitecore.Kernel" name="Sitecore.MediaRequestHandler" />`
