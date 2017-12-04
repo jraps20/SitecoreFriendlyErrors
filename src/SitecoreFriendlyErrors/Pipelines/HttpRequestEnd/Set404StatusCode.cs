@@ -12,7 +12,7 @@ namespace SitecoreFriendlyErrors.Pipelines.HttpRequestEnd
         protected override void Execute(HttpRequestArgs args)
         {
             // retain 500 response if previously set
-            if (HttpContext.Current.Response.StatusCode >= 500 || args.Context.Request.RawUrl == "/")
+            if (HttpContext.Current.Response.StatusCode >= 500 || args.Context.Request.RawUrl == "/" || Sitecore.Context.Site == null)
                 return;
 
             // return if request does not end with value set in ItemNotFoundUrl, i.e. successful page
