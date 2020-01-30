@@ -12,12 +12,12 @@ namespace SitecoreFriendlyErrors.Pipelines.HttpRequestBegin
     public class ExecuteRequest : global::Sitecore.Pipelines.HttpRequest.ExecuteRequest
     {
         private readonly BaseLinkManager _baseLinkManager;
-
-        public ExecuteRequest()
+        
+        public ExecuteRequest(BaseSiteManager siteManager, BaseItemManager itemManager) : base(siteManager, itemManager)
         {
             _baseLinkManager = ServiceLocator.ServiceProvider.GetRequiredService<BaseLinkManager>();
         }
-
+        
         protected override void PerformRedirect(string url)
         {
             if (Context.Site == null || Context.Database == null || Context.Database.Name == "core")

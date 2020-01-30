@@ -79,11 +79,13 @@ namespace SitecoreFriendlyErrors.Pipelines
         {
             if (string.IsNullOrWhiteSpace(ignoredPaths))
                 return true;
+            
+            var httpContext = hArgs.HttpContext;
 
             var ignoredPath = ignoredPaths
                 .Split(',')
                 .Select(i => i.Trim())
-                .Any(path => hArgs.Context.Request.RawUrl.StartsWith(path, StringComparison.CurrentCultureIgnoreCase));
+                .Any(path => httpContext.Request.RawUrl.StartsWith(path, StringComparison.CurrentCultureIgnoreCase));
 
             return !ignoredPath;
         }
