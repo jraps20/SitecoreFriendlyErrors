@@ -85,6 +85,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="packages.config" />
+    <None Include="icon.jpg" Pack="true" Visible="false" PackagePath="" />
     <None Include="web.config">
       <SubType>Designer</SubType>
     </None>
